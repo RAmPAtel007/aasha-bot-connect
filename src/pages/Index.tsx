@@ -14,7 +14,7 @@ const Index = () => {
             <Heart className="h-16 w-16 text-primary animate-pulse" />
           </div>
           <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent animate-fade-in">
-            Aasha Health Assistant
+            MedMitra Assistant
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground animate-fade-in">
             Your AI-powered companion for preventive healthcare, vaccination tracking, and health emergencies

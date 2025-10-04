@@ -10,7 +10,7 @@ interface LanguageContextType {
 
 const translations: Record<Language, Record<string, string>> = {
   en: {
-    appName: "Aasha Health Assistant",
+    appName: "MedMitra Assistant",
     login: "Login",
     signup: "Sign Up",
     email: "Email",
@@ -53,7 +53,7 @@ const translations: Record<Language, Record<string, string>> = {
     busy: "Busy",
     getDirections: "Get Directions",
     typeMessage: "Type your message...",
-    startChat: "Start chatting with Aasha...",
+    startChat: "Start chatting with MedMitra...",
     voiceInput: "Voice Input",
     alreadyHaveAccount: "Already have an account?",
     dontHaveAccount: "Don't have an account?",
