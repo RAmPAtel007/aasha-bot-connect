@@ -46,7 +46,7 @@ const ChatbotWidget = ({ userId, onClose }: ChatbotWidgetProps) => {
   const initConversation = async () => {
     try {
       const { data, error } = await supabase
-        .from('conversations')
+        .from('conversations' as any)
         .insert({
           user_id: userId,
           channel: 'web',
@@ -56,7 +56,7 @@ const ChatbotWidget = ({ userId, onClose }: ChatbotWidgetProps) => {
         .single();
 
       if (error) throw error;
-      setConversationId(data.id);
+      setConversationId(data?.conversation_id);
 
       // Add welcome message
       const welcomeMsg: Message = {
@@ -87,14 +87,14 @@ const ChatbotWidget = ({ userId, onClose }: ChatbotWidgetProps) => {
 
     try {
       // Save user message
-      await supabase.from('messages').insert({
+      await supabase.from('messages' as any).insert({
         conversation_id: conversationId,
         sender: 'user',
         message_text: input,
       });
 
       // Log the query
-      await supabase.from('chatbot_logs').insert({
+      await supabase.from('chatbot_logs' as any).insert({
         user_id: userId,
         query: input,
         response: 'Processing...',
@@ -113,7 +113,7 @@ const ChatbotWidget = ({ userId, onClose }: ChatbotWidgetProps) => {
       setMessages((prev) => [...prev, botMessage]);
 
       // Save bot message
-      await supabase.from('messages').insert({
+      await supabase.from('messages' as any).insert({
         conversation_id: conversationId,
         sender: 'bot',
         message_text: botResponse,
@@ -121,8 +121,8 @@ const ChatbotWidget = ({ userId, onClose }: ChatbotWidgetProps) => {
 
       // Update log
       await supabase
-        .from('chatbot_logs')
-        .update({ response: botResponse })
+        .from('chatbot_logs' as any)
+        .update({ response: botResponse } as any)
         .eq('user_id', userId)
         .eq('query', input);
     } catch (error: any) {

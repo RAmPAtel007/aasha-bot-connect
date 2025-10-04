@@ -55,16 +55,16 @@ const Auth = () => {
 
         if (authData.user) {
           const { error: profileError } = await supabase
-            .from('users')
+            .from('users' as any)
             .insert({
               user_id: authData.user.id,
+              auth_user_id: authData.user.id,
               name: fullName,
               phone,
               age: parseInt(age),
               gender,
               language,
               location,
-              role: 'user',
               consent_given: true,
             });
 

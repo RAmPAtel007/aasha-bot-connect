@@ -30,7 +30,7 @@ const NotificationsList = ({ userId }: NotificationsListProps) => {
   const fetchNotifications = async () => {
     try {
       const { data, error } = await supabase
-        .from('notifications')
+        .from('notifications' as any)
         .select('*')
         .eq('user_id', userId)
         .order('schedule_time', { ascending: false })

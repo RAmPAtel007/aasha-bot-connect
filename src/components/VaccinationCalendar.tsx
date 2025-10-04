@@ -28,7 +28,7 @@ const VaccinationCalendar = ({ userId }: VaccinationCalendarProps) => {
   const fetchVaccinationRecords = async () => {
     try {
       const { data, error } = await supabase
-        .from('vaccination_records')
+        .from('vaccination_records' as any)
         .select('*')
         .eq('user_id', userId)
         .order('due_date', { ascending: true });

@@ -27,7 +27,7 @@ const HospitalFinder = () => {
   const fetchHospitals = async () => {
     try {
       const { data, error } = await supabase
-        .from('hospitals')
+        .from('hospitals' as any)
         .select('*')
         .order('name', { ascending: true });
 

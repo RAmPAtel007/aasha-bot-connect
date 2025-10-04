@@ -26,7 +26,7 @@ const OutbreakAlerts = () => {
   const fetchOutbreakAlerts = async () => {
     try {
       const { data, error } = await supabase
-        .from('outbreak_alerts')
+        .from('outbreak_alerts' as any)
         .select('*')
         .order('issued_date', { ascending: false })
         .limit(10);
