@@ -24,8 +24,8 @@ const HealthTips = () => {
 
   const fetchHealthTips = async () => {
     try {
-      const { data, error } = await supabase
-        .from('knowledge_base_articles' as any)
+      const { data, error } = await (supabase as any)
+        .from('knowledge_base_articles')
         .select('*')
         .eq('language', language)
         .order('last_updated', { ascending: false })

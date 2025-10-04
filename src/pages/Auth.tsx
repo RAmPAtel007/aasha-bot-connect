@@ -54,8 +54,8 @@ const Auth = () => {
         if (authError) throw authError;
 
         if (authData.user) {
-          const { error: profileError } = await supabase
-            .from('users' as any)
+          const { error: profileError } = await (supabase as any)
+            .from('users')
             .insert({
               user_id: authData.user.id,
               auth_user_id: authData.user.id,
